@@ -1,0 +1,17 @@
+php artisan migrate ----> to generate the necessary database tables for the application.
+php atisan make:migration crete_students_table ----> to create a new migration file for the students table.
+php artisan migrate ----> to run the migration and create the students table in the database.
+php artisan migrate refresh ----> to rollback and re-run all migrations, useful for testing changes in migration files.
+php artisan make:model Student ----> to create a new Eloquent model for the Student entity.
+php artisan make:model Student -mcr ----> to create a new Eloquent model along with a migration, controller, and resource for the Student entity.
+php artisan make:model Student -cr ----> to create a new Eloquent model along with a controller and resource for the Student entity, without a migration.
+use App\Models\Student; ----> to import the Student model into a controller or other class.
+
+<!-- Authentication -->
+ composer create-project laravel/laravel:"^10" app2
+    php artisan serve
+    connect to database in .env file
+    composer require laravel/breeze --dev
+    php artisan breeze:install
+    blade
+    php artisan migrate
