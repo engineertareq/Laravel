@@ -1,0 +1,146 @@
+
+        /* --- COPYING STYLES FROM REFERENCE --- */
+        :root {
+            --primary: #FF2D20; /* Laravel Red */
+            --dark: #1e1e24;
+            --light: #f8f9fa;
+            --success: #00C851;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --radius: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--dark);
+            margin: 0;
+            padding-bottom: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .bn-font { font-family: 'Hind Siliguri', sans-serif; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Language Switcher */
+        .lang-switch-container {
+            position: relative;
+            display: flex;
+            background: #e2e2e2;
+            border-radius: 30px;
+            padding: 4px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            color: var(--primary);
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Sections */
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+
+        /* Lists */
+        ul { list-style: none; padding: 0; }
+        ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        ul li:last-child { border-bottom: none; }
+        ul li i { color: var(--primary); width: 20px; text-align: center; }
+
+        /* Code Block */
+        .code-block {
+            background: #2d2d2d;
+            color: #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+        .code-title {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: block;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+        .code-cmd { border-left: 4px solid var(--primary); }
+        .code-fix { border-left: 4px solid #ffbb33; }
+
+        /* Helpers */
+        .lang-en, .lang-bn { display: block; }
+        .hidden { display: none !important; }
+        .text-muted { color: #666; font-size: 0.9em; margin-top: 5px; display: block; }
+        
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7em;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
