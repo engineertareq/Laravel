@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
@@ -30,6 +31,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->cat_name;
+        $category = [
+            'name' => $request ->cat_name
+        ];
+        Category::create($category);
+        return redirect('/categories/create');
         
     }
 
