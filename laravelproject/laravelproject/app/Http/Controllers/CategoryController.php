@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
@@ -14,7 +13,6 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-     
         return view('backend.category.index', compact('categories'));
     }
 
@@ -31,13 +29,29 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->cat_name;
+        // 1. Validation
+        $request->validate(
+            [
+                // Removed spaces inside the rule string for safety
+                'cat_name' => 'required|max:255|min:3|unique:categories,name' 
+            ],
+            [
+                'required' => 'Category name is required',
+                'max' => 'Category name is too long',
+                'min' => 'Minimum 3 characters are required'
+            ]
+        );
+
+        // 2. Prepare Data
         $category = [
-            'name' => $request ->cat_name
+            'name' => $request->cat_name
         ];
+
+        // 3. Insert
         Category::create($category);
-        return redirect('/categories/create');
-        
+
+        // 4. Redirect (Best practice: use route names instead of hardcoded paths)
+        return redirect()->route('categories.index')->with('success', 'Category Added Successfully');
     }
 
     /**
@@ -45,7 +59,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        // Not usually needed for simple categories
     }
 
     /**
@@ -53,7 +67,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        // FIX: You must pass the category data to the view so the form can be filled
+        return view('backend.category.edit', compact('category'));
     }
 
     /**
@@ -61,7 +76,23 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        // FIX: Implemented Update Logic
+        
+        // 1. Validation
+        $request->validate(
+            [
+                // Note: We add .$category->id to allow the name to stay the same for THIS category
+                'cat_name' => 'required|min:3|max:255|unique:categories,name,' . $category->id 
+            ]
+        );
+
+        // 2. Update
+        $category->update([
+            'name' => $request->cat_name
+        ]);
+
+        // 3. Redirect
+        return redirect()->route('categories.index')->with('success', 'Category Updated Successfully');
     }
 
     /**
@@ -69,6 +100,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        // FIX: Redirect to index, NOT destroy. 
+        // Redirecting to destroy would cause an infinite loop or method not found error.
+        return redirect()->route('categories.index')->with('success', 'Successfully Deleted');
     }
 }
