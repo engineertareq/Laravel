@@ -66,12 +66,6 @@
                                         <span class="hide-menu"> Add New </span>
                                     </a>
                                 </li>
-                                <li class="sidebar-item">
-                                    <a href="index3.html" class="sidebar-link">
-                                        <i class="icon-Record"></i>
-                                        <span class="hide-menu"> Dashboard 3 </span>
-                                    </a>
-                                </li>
 
                             </ul>
                         </li>
@@ -87,74 +81,18 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="inbox-email.html" class="sidebar-link">
+                                    <a href="/products" class="sidebar-link">
                                         <i class="mdi mdi-email"></i>
-                                        <span class="hide-menu"> Email </span>
+                                        <span class="hide-menu"> All Products </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="inbox-email-detail.html" class="sidebar-link">
+                                    <a href="/products/create" class="sidebar-link">
                                         <i class="mdi mdi-email-alert"></i>
-                                        <span class="hide-menu"> Email Detail </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="inbox-email-compose.html" class="sidebar-link">
-                                        <i class="mdi mdi-email-secure"></i>
-                                        <span class="hide-menu"> Email Compose </span>
+                                        <span class="hide-menu"> Add Products </span>
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                                <i class="icon-Ticket"></i>
-                                <span class="hide-menu">Ticket </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item">
-                                    <a href="ticket-list.html" class="sidebar-link">
-                                        <i class="mdi mdi-book-multiple"></i>
-                                        <span class="hide-menu"> Ticket List </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="ticket-detail.html" class="sidebar-link">
-                                        <i class="mdi mdi-book-plus"></i>
-                                        <span class="hide-menu"> Ticket Detail </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                                <i class="icon-Sunglasses-Smiley"></i>
-                                <span class="hide-menu">Extra </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item">
-                                    <a href="app-chats.html" class="sidebar-link">
-                                        <i class="mdi mdi-comment-processing-outline"></i>
-                                        <span class="hide-menu"> Chats Apps </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="app-calendar.html" class="sidebar-link">
-                                        <i class="mdi mdi-calendar"></i>
-                                        <span class="hide-menu"> Calender </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="app-taskboard.html" class="sidebar-link">
-                                        <i class="mdi mdi-bulletin-board"></i>
-                                        <span class="hide-menu"> Taskboard </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-             
-                        
-                       
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
