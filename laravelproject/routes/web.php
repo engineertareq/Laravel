@@ -32,15 +32,28 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);
 });
 
-// Route::get('/categories', function () {
-//     return view('backend.layouts.categories');
-// })->middleware(['auth', 'verified'])->name('categories');
-
-// Route::get('/categorie-add', function () {
-//     return view('backend.layouts.categories-add');
-// })->middleware(['auth', 'verified'])->name('categories.add');
-
-
 require __DIR__.'/auth.php';
 
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
 
+Route::middleware('guest:admin')->prefix('admin')->group( function () {
+
+    Route::get('login', [App\Http\Controllers\Auth\Admin\LoginController::class, 'create'])->name('admin.login');
+    Route::post('login', [App\Http\Controllers\Auth\Admin\LoginController::class, 'store']);
+
+});
+
+Route::middleware('auth:admin')->prefix('admin')->group( function () {
+
+    Route::post('logout', [App\Http\Controllers\Auth\Admin\LoginController::class, 'destroy'])->name('admin.logout');
+
+    // FIX APPLIED HERE:
+    // 1. Removed '/admin' from the URL path because the prefix handle it.
+    // 2. Added ->name('admin.dashboard') for easier redirection.
+    Route::view('/dashboard', 'admin.dashboard')->name('admin.dashboard');
+
+});

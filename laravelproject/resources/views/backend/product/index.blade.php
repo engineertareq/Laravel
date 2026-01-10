@@ -21,6 +21,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
+                                    <th>Category</th>
                                     <th>Stock</th>
                                     <th>SKU</th>
                                     <th>Image</th>
@@ -34,6 +35,11 @@
                                 <tr>
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->name }}</td>
+                                    
+                                    {{-- FIXED: Changed $item to $product --}}
+                                    {{-- Use optional() to prevent crash if category is deleted --}}
+                                    <td>{{ optional($product->category)->name ?? 'Uncategorized' }}</td>
+                                    
                                     <td>{{ $product->stock }}</td>
                                     <td>{{ $product->sku }}</td>
                                     <td>
