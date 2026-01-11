@@ -9,10 +9,17 @@
     <div id="main-wrapper">
         
     <!-- Header Include -->
+    @if(Auth::('web')->check())
       @include ("backend.layouts.header")
-       
+    @elseif(Auth::guard('admin')->check())
+     @include ("backend.layouts.adminHeader")
+    @endif
     <!--Sidebar Include -->
+    @if(Auth::('web')->check())
     @include("backend.layouts.sidebar")
+    @elseif(Auth::guard('admin')->check())
+    @include ("backend.layouts.adminLeftbar")
+    @endif
 
 
       <!--content-->

@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('category',CategoryController::class);
     Route::resource('product',ProductController::class);
 });
+
+
+
 Route::middleware('guest:admin')->prefix('admin')->group( function () {
 
     Route::get('login', [App\Http\Controllers\Auth\Admin\LoginController::class, 'create'])->name('admin.login');
@@ -51,6 +54,27 @@ Route::middleware('auth:admin')->prefix('admin')->group( function () {
 
 
     Route::view('/dashboard','admin.dashboard');
+
+});
+
+// Manager 
+
+Route::middleware('guest:manager')->prefix('manager')->group( function () {
+
+    Route::get('login', [App\Http\Controllers\Auth\Manager\LoginController::class, 'create'])->name('manager.login');
+    Route::post('login', [App\Http\Controllers\Auth\Manager\LoginController::class, 'store']);
+
+    //Route::get('register', [App\Http\Controllers\Auth\Admin\RegisterController::class, 'create'])->name('admin.register');
+    //Route::post('register', [App\Http\Controllers\Auth\Admin\RegisterController::class, 'store']);
+
+});
+
+Route::middleware('auth:manager')->prefix('manager')->group( function () {
+
+    //Route::post('logout', [App\Http\Controllers\Auth\Admin\LoginController::class, 'destroy'])->name('admin.logout');
+
+
+    Route::view('/manager','backend.manager_dashboard');
 
 });
 
