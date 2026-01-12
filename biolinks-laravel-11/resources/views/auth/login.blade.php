@@ -1,0 +1,20 @@
+<x-layout.app>
+
+    <x-container class="h-screen">
+        <x-card title="Login">
+            <x-form :route="('login')" post id="login-form">
+
+                <x-input name="email" type="email" placeholder="E-mail" value="{{ old('email') }}" />
+                <x-input name="password" type="password" placeholder="Senha" />
+
+            </x-form>
+
+            <x-slot:actions>
+                <x-a :href="route('register')" class="link-primary link-hover">I need to create a new account !</x-a>
+                <x-button type="submit" form="login-form">Logar</x-button>
+            </x-slot:actions>
+
+        </x-card>
+    </x-container>
+
+</x-layout.app>
